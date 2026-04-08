@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>儿童识字 MVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">幼小衔接 · 识字启蒙</p>
+          <h1>识字小挑战</h1>
+        </div>
+        <button id="refreshProgressBtn" class="ghost-btn">刷新进度</button>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="learn">学习</button>
+        <button class="tab-btn" data-tab="challenge">挑战</button>
+        <button class="tab-btn" data-tab="progress">进度</button>
+      </nav>
+
+      <main>
+        <section class="tab-panel active" id="learn-panel">
+          <div class="panel-head">
+            <h2>今日学习包</h2>
+            <p>先学词，再做小练习，最后进入挑战。</p>
+          </div>
+
+          <div class="scene-pills" id="learnScenePills"></div>
+
+          <div class="unlock-bar">
+            <span id="unlockStatus">词包解锁进度加载中...</span>
+            <button id="unlockNextBatchBtn" class="primary-btn">解锁下一批</button>
+          </div>
+
+          <div class="card" id="learnCard">
+            <div class="card-placeholder">请选择一个场景，开始学习。</div>
+          </div>
+
+          <div class="learn-actions">
+            <button id="playAudioBtn">听读音</button>
+            <button id="markLearnedBtn" class="primary-btn">学会这个词</button>
+            <button id="nextWordBtn">下一个</button>
+          </div>
+
+          <div class="mini-quiz" id="miniQuizBox"></div>
+        </section>
+
+        <section class="tab-panel" id="challenge-panel">
+          <div class="panel-head">
+            <h2>场景大挑战</h2>
+            <p>每轮 10 题，正确率达到 70% 即通关。</p>
+          </div>
+
+          <div class="challenge-setup">
+            <label for="challengeScene">选择场景</label>
+            <select id="challengeScene"></select>
+            <button id="startChallengeBtn" class="primary-btn">开始挑战</button>
+          </div>
+
+          <div id="challengeBox" class="card">
+            <div class="card-placeholder">点击“开始挑战”后出题。</div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="progress-panel">
+          <div class="panel-head">
+            <h2>家长简报（简版）</h2>
+            <p>查看学习时长、掌握词数和薄弱词。</p>
+          </div>
+
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="card">
+            <h3>掌握分层</h3>
+            <ul id="masteryList" class="simple-list"></ul>
+          </div>
+          <div class="card">
+            <h3>薄弱词推荐复习</h3>
+            <ul id="weakWords" class="simple-list"></ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
